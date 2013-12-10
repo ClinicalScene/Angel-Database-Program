@@ -1,0 +1,19 @@
+Private Sub cmdCancel_Click()
+
+Application.DisplayAlerts = False
+ThisWorkbook.Close
+Application.DisplayAlerts = True
+'wbFile.Close
+
+'open the logging file...
+'but disable events first.... so the OpenEvent doesn't run...
+
+Application.EnableEvents = False
+Workbooks.Open FileName:=ThisWorkbook.Path & "\Angel Database Logging.xlsm"
+
+TestVal = Application.ExecuteExcel4Macro("logUser")
+With Sheets("User Logging")
+
+
+Application.DisplayAlerts = True
+End Sub
