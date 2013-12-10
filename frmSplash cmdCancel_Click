@@ -1,19 +1,11 @@
 Private Sub cmdCancel_Click()
 
 Application.DisplayAlerts = False
-ThisWorkbook.Close
+'ThisWorkbook.Close \\changed DH20131209
+Application.Quit
 Application.DisplayAlerts = True
-'wbFile.Close
 
-'open the logging file...
-'but disable events first.... so the OpenEvent doesn't run...
+'no longer makes a call to \Angel Database Logging.xlsm
+'(not necessary if database is never opened)
 
-Application.EnableEvents = False
-Workbooks.Open FileName:=ThisWorkbook.Path & "\Angel Database Logging.xlsm"
-
-TestVal = Application.ExecuteExcel4Macro("logUser")
-With Sheets("User Logging")
-
-
-Application.DisplayAlerts = True
 End Sub
