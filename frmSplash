@@ -1,0 +1,66 @@
+Private Sub cmdEnter_Click()
+Application.ScreenUpdating = False
+
+    Unload frmSplash
+
+Select Case cboUserName
+
+    Case Is = "dhenderson"
+    Application.ExecuteExcel4Macro "SET.NAME(""logUser"",""dhenderson"")"
+
+    Case Is = "krussell"
+    Application.ExecuteExcel4Macro "SET.NAME(""logUser"",""krussell"")"
+
+    Case Is = "mtumas"
+    Application.ExecuteExcel4Macro "SET.NAME(""logUser"",""mtumas"")"
+
+    Case Is = "langel"
+    Application.ExecuteExcel4Macro "SET.NAME(""logUser"",""langel"")"
+End Select
+
+Select Case txtPassword
+
+    Case Is = "cantaloupe"
+    If testval = "dhenderson" Then GoTo OpenDatabase
+    
+    Case Is = "blueberry"
+    If testval = "krussell" Then GoTo OpenDatabase
+    
+    Case Is = "apricot"
+    If testval = "mtumas" Then GoTo OpenDatabase
+    
+    Case Is = "CMO"
+    If testval = "langel" Then GoTo OpenDatabase
+    
+    Case Else
+    MsgBox ("Not a valid login combination...")
+    Application.DisplayAlerts = False
+       ThisWorkbook.Close
+       Application.DisplayAlerts = True
+    
+End Select
+'Workbooks.Open FileName:="U:\EFPS\Database\Angel Database Logging.xlsm"
+Workbooks.Open FileName:=ThisWorkbook.Path & "\Angel Database Logging.xlsm"
+ 
+ Application.ScreenUpdating = False
+ 
+'TestVal = Application.ExecuteExcel4Macro("logUser")
+'MsgBox (TestVal)
+
+OpenDatabase:
+
+Application.WindowState = xlMaximized
+Windows("Angel Catheter Early Feasibility Database.xlsm").WindowState = xlMaximized
+'Application.DisplayFullScreen = True
+'Workbooks(dbName).Visible = True     ' ActiveWindow.Visible = True  Set dbName = ThisWorkbook.Name
+'Windows("Angel Catheter Early Feasibility Database_20131014.xlsm").Visible = True
+'Windows(dbFileName).Visible = True
+'DH20131031   Workbooks.Open FileName:=ThisWorkbook.Path & "\Angel Database Logging.xlsm"
+
+
+'ActiveWindow.WindowState = xlMinimized
+'Workbooks("Angel Catheter Early Feasibility Database.xlsm").Activate
+'ActiveWindow.WindowState = xlMaximized
+
+Application.ScreenUpdating = True
+End Sub
