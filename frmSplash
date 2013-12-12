@@ -1,7 +1,7 @@
 Private Sub cmdEnter_Click()
 Application.ScreenUpdating = False
 
-    Unload frmSplash
+   
 
 Select Case cboUserName
 
@@ -39,6 +39,9 @@ Select Case txtPassword
        Application.DisplayAlerts = True
     
 End Select
+
+ Unload frmSplash   'DH20131212 moved from line 4, didn't seem right to close early if still potential for auth errors...
+ 
 'Workbooks.Open FileName:="U:\EFPS\Database\Angel Database Logging.xlsm"
 Workbooks.Open FileName:=ThisWorkbook.Path & "\Angel Database Logging.xlsm"
  
