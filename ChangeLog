@@ -1,0 +1,3 @@
+20131217_0707 : many modifications to frmSplash, etc in response to Kristen's notification of failed validation tests ...
+
+20131217_1235 : fix header label tbl011_ADVERSE_EVENT[DEATH_EXPECTED] to tbl011_ADVERSE_EVENT[DEATH_UNEXPECTED]
